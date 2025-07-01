@@ -67,6 +67,6 @@ def index():
     user_data = ref.get()
     return render_template("index.html", data=user_data)
 
-# ✅ App Run (keep this at bottom only)
-if __name__ == '__main__':
-    app.run(debug=True, port=1000, host='0.0.0.0')
+# # ✅ App Run (keep this at bottom only)
+# if __name__ == '__main__':
+#     app.run(debug=True, port=1000, host='0.0.0.0')
