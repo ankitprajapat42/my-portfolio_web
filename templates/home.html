@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ data.name }} | Portfolio</title>
+</head>
+<body>
+  <h1>{{ data.name }}</h1>
+  <h2>{{ data.title }}</h2>
+  <p><strong>{{ data.teg_line }}</strong></p>
+
+  <h3>About Me</h3>
+  {% for para in data.about_me %}
+    <p>{{ para }}</p>
+  {% endfor %}
+
+  <h3>Skills</h3>
+  <p>{{ data.skill_discription }}</p>
+  <ul>
+    {% for skill in data.skills %}
+      <li>{{ skill }}</li>
+    {% endfor %}
+  </ul>
+
+  <h3>Languages</h3>
+  <p>{{ data.language_disciption }}</p>
+  <ul>
+    {% for lang, level in data.languages.items() %}
+      <li>{{ lang }}: {{ level }}%</li>
+    {% endfor %}
+  </ul>
+
+  <h3>Experience</h3>
+  <p>{{ data.experience_disciption }}</p>
+  {% for exp in data.experiences %}
+    <div>
+      <h4>{{ exp.title }}</h4>
+      <p><strong>Company:</strong> {{ exp.company_name }}</p>
+      <p><strong>Role:</strong> {{ exp.jobrole }} ({{ exp.duration }})</p>
+    </div>
+  {% endfor %}
+
+  <h3>Projects</h3>
+  <p>{{ data.project_disciption }}</p>
+  {% for proj in data.projects %}
+    <div>
+      <h4>{{ proj.project_name }}</h4>
+      <p><strong>Technologies:</strong> {{ proj.Used_tech }}</p>
+      <p>{{ proj.desciption }}</p>
+      <a href="{{ proj.github_link }}" target="_blank">GitHub Link</a>
+    </div>
+  {% endfor %}
+
+  <h3>Contact</h3>
+  <p><strong>Email:</strong> {{ data.email }}</p>
+  <p><strong>Phone:</strong> {{ data.mobile_no }}</p>
+  <p><strong>Location:</strong> {{ data.location }}</p>
+
+  <h3>Social Media</h3>
+  <ul>
+    {% for name, link in data.social_media_links.items() %}
+      <li><a href="{{ link }}" target="_blank">{{ name|capitalize }}</a></li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

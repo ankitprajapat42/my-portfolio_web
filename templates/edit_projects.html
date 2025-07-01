@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Projects</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f9;
+      padding: 20px;
+      color: #2c3e50;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.07);
+    }
+
+    h2, h3 {
+      text-align: center;
+      color: #34495e;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: 500;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      background-color: #3498db;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #2c80b4;
+    }
+
+    .project-card {
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      background-color: #fafafa;
+    }
+
+    .project-card strong {
+      color: #2c3e50;
+      font-size: 1.1rem;
+    }
+
+    .project-card a {
+      color: #2980b9;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+
+    .delete-btn {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    .delete-btn:hover {
+      background-color: #c0392b;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 25px;
+      color: #2980b9;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    hr {
+      margin: 25px 0;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Edit Projects</h2>
+
+    <!-- Update Project Counts -->
+    <form method="POST">
+      <input type="hidden" name="update_counts" value="1">
+      <label>Total Completed Projects:</label>
+      <input type="number" name="no_of_completeprojects" value="{{ data.no_of_completeprojects }}" required>
+
+      <label>Positive Reviews:</label>
+      <input type="number" name="positive_reviews" value="{{ data.positive_reviews }}" required>
+
+      <button type="submit">Update Project Counts</button>
+    </form>
+
+    <hr>
+
+    <!-- Existing Projects -->
+    <form method="POST">
+      {% for project in projects %}
+      <div class="project-card">
+        <strong>{{ project.project_name }}</strong> – {{ project.Used_tech }}<br>
+        <p>{{ project.desciption }}</p>
+        <a href="{{ project.github_link }}" target="_blank">{{ project.github_link }}</a><br>
+        <button type="submit" name="delete_index" value="{{ loop.index0 }}" class="delete-btn">❌ Delete</button>
+      </div>
+      {% endfor %}
+    </form>
+
+    <hr>
+
+    <!-- Add New Project -->
+    <h3>Add New Project</h3>
+    <form method="POST">
+      <input type="hidden" name="add_project" value="1">
+      <input type="text" name="project_name" placeholder="Project Name" required>
+      <input type="text" name="used_tech" placeholder="Used Technologies" required>
+      <textarea name="desciption" placeholder="Project Description" rows="4" required></textarea>
+      <input type="text" name="github_link" placeholder="GitHub Link">
+      <button type="submit">➕ Add Project</button>
+    </form>
+
+    <a href="/dashboard" class="back-link">← Back to Dashboard</a>
+  </div>
+</body>
+
+</html>

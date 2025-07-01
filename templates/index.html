@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Ankit Prajapat</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+
+  <header>
+        <div class="logo">
+            <h1>{{ data.name }}</h1>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+        <div class="navbar">
+            <button type="button" id="nev_home_btn" onclick="go_to_home()">Home</button>
+            <button type="button" id="nev_about_btn" onclick="go_to_about()">About Me</button>
+            <button type="button" id="nev_project_btn" onclick="go_to_projects()">Project</button>
+            <button type="button" id="nev_contact_btn" onclick="go_to_contact()">Contact</button>
+        </div>
+    </header>
+
+  <!-- Main Body -->
+  <main>
+
+    <!-- Section 1 -->
+    <section id="home">
+      <div class="design">
+        <img src="../static/image.png" alt="photo" id="photo">
+      </div>
+
+      <div class="content">
+        <h3>Hi There, I'm</h3>
+        <h1>{{ data.name }}</h1>
+
+        <h2>{{ data.title }}</h2>
+        <div>
+        {% for name, link in data.social_media_links.items() %}
+            <button type="button" onclick="window.location.href='{{ link }}'">
+            <i class="fa fa-{{ name | lower }}"></i>
+            </button>
+        {% endfor %}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="about_me">
+      <h1>{{ data.teg_line }}</h1>
+         {% for para in data.about_me %}
+        <p>{{ para }}</p>
+        {% endfor %}
+
+        <div class="projects_counter">
+
+            <div id="a_div1">        
+                <h1>{{ data.no_of_completeprojects }}</h1>
+                <p>Complete Project's</p>     
+            </div>  
+                
+    
+            <div id="a_div2">
+                <h1>{{ data.positive_reviews }}</h1>
+                <p>Positive review's</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section 3 -->
+    <section id="skills_and_languages">
+      <div class="skills">
+            <h1>Skills</h1>
+            <p>{{ data.skill_discription }}</p>
+            {% for skill in data.skills %}
+            <span>{{ skill }}</span>
+            {% endfor %}
+            
+        </div>
+
+        <div class="languages">
+            <h1>Language skill</h1>
+            <p>{{ data.language_disciption }}</p>
+            
+            
+
+            {% for lang, level in data.languages.items() %}
+            <div id="l_div1">
+                <span>{{ level }}%</span>
+                <p>{{ lang }}</p>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+    <!-- Section 4 -->
+    <section id="experiences">
+      <h1>My Experiences</h1>
+        <p>{{ data.experience_disciption }}</p>
+        
+        <div class="slider-container">
+            <div class="slider">
+                {% for exp in data.experiences %}
+                
+                <div class="card">
+                    <h1>{{ exp.title }}</h1>
+                    <h3>{{ exp.company_name }}</h3>
+                    <p>{{ exp.jobrole }}<br>{{ exp.duration }}</p>
+                </div>
+                {% endfor %}
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Message -->
+    <div class="message">
+        <h2>I Am Available For Remote Jobs!</h2>
+        <button type="button" onclick="go_to_contact()" id="hire_me_btn">Hire Me Now</button>
+    </div>
+
+
+    <!-- Section 5 -->
+    <section id="projects">
+      <h1>What have I created?</h1>
+        <p>{{ data.project_disciption }}</p>
+        
+        <div class="project-container">
+            {% for proj in data.projects %}
+
+            <div class="project-card">
+                <h3>{{ proj.project_name }}</h3>
+                <p><strong>Technologies:-</strong><br> {{ proj.Used_tech }}</p>
+                <p>{{ proj.desciption }}</p>
+                <a href="{{ proj.github_link }}" target="_blank">GitHub Link</a>
+            </div>
+            {% endfor %}
+
+
+            
+           
+        </div>
+
+    </section>
+
+
+    <!-- Section 6 -->
+     <section id="contact">
+      <h1>Get In Touch</h1>
+        <p>Here you can let me know if you have any criticism, suggestion, or problem. I'm waiting to hear your voice or see your message.</p>
+        <div id="c_outer">
+            <div id="c_inner1">
+        
+                <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                    <h2>What's Up?</h2>
+                  
+                    <input type="hidden" name="access_key" value="4a1afd6a-6f1e-434b-9492-235ccc720a90" />
+                    <input type="hidden" name="subject" value="My Portfolio Website Email" />
+                    <input type="hidden" name="from_name" value="My Portfolio" />
+                    <!-- More custom ization options available in the docs: https://docs.web3forms.com -->
+                
+                    <div class="form-group-container">
+                      <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input id="name" name="name" class="form-input" placeholder="Your name" type="text"  required/>
+                      </div>
+                      <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input id="email" name="email" class="form-input" placeholder="Your email" type="email" required/>
+                      </div>
+                      <div class="form-group">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input id="phone" name="phone" class="form-input" placeholder="+91-1234567890" type="text" required/>
+                      </div>
+                      <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-textarea" id="message" name="message" placeholder="Your message" required></textarea>
+                      </div>
+                    </div>
+                    <button class="form-submit" type="submit">Send Message</button>
+                  </form>
+
+                
+            </div>
+            <div id="c_inner2">
+                <h1>What is your plan? Call me</h1>
+                <p>You can get my contact information here. If you like, you can also find my social media links at the top of the page.</p>
+                <p id="location"><i class="fa fa-location-arrow"></i> {{ data.location }}</p>
+                <p id="email"><i class="fa fa-envelope"></i> {{ data.email }}</p>
+                <p id="mobile_no"><i class="fa fa-phone"></i> +91-{{ data.mobile_no }}</p>
+            </div>
+        </div>
+     </section>
+
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-icons">
+    {% for name, link in data.social_media_links.items() %}
+        <a href="{{ link }}" target="_blank">
+        <i class="fa fa-{{ name | lower }}"></i>
+        </a>
+    {% endfor %}
+    </div>
+
+    <h2>Made with ❤️ and lots of ☕ in 2025</h2>
+    <p>&copy; 2025 Ankit Prajapat. All rights reserved.</p>
+
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+        
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('active');
+        }
+        
+        
+        function go_to_contact(){
+            const button = document.getElementById('hire_me_btn');
+            const targetDiv = document.getElementById('contact');
+        
+            button.addEventListener('click', () => {
+                targetDiv.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to div
+            });
+
+            
+        }
+
+        document.getElementById("nev_home_btn").addEventListener("click", function() {
+            document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        document.getElementById("nev_about_btn").addEventListener("click", function() {
+            document.getElementById('about_me').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        document.getElementById("nev_project_btn").addEventListener("click", function() {
+            document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        document.getElementById("nev_contact_btn").addEventListener("click", function() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        
+       
+
+    </script>
+
+</body>
+
+</html>

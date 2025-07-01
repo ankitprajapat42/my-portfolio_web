@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit About Me</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f9;
+      color: #2c3e50;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #34495e;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    .entry {
+      margin-bottom: 20px;
+    }
+
+    .entry button {
+      margin-top: 8px;
+      padding: 6px 12px;
+      background-color: #e74c3c;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .entry button:hover {
+      background-color: #c0392b;
+    }
+
+    h4 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+
+    button[type="submit"] {
+      margin-top: 15px;
+      padding: 10px 16px;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #219150;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #2980b9;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Edit About Me</h2>
+
+    <form method="POST">
+      {% for line in about_me %}
+        <div class="entry">
+          <textarea name="line_{{ loop.index0 }}" rows="3">{{ line }}</textarea>
+          <button type="submit" name="delete_index" value="{{ loop.index0 }}">❌ Delete</button>
+        </div>
+      {% endfor %}
+
+      <h4>Add New Line:</h4>
+      <textarea name="new_line" rows="3" placeholder="Add new paragraph..."></textarea>
+
+      <button type="submit">✅ Save Changes</button>
+    </form>
+
+    <a href="/dashboard" class="back-link">← Back to Dashboard</a>
+  </div>
+</body>
+
+</html>

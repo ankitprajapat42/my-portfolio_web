@@ -1,0 +1,887 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 200vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.navbar {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background-color: transparent;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navbar button:hover {
+    background-color: #FFC107;
+    color: #fff;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+
+
+    .navbar {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #fff;
+        padding: 10px 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+
+
+#home {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255,193,7,.13);
+    /* position: relative; */
+    overflow: hidden;
+}
+
+.design {
+    height: 100%;
+    width: 60%;
+    background-color: #fff;
+    border-radius: 0 57vh 57vh 0;
+    display: flex;
+    justify-content: end;
+    align-items: last baseline;
+
+}
+
+#photo {
+    height: 600px;
+    max-height: 100%;
+    /* transition: all 0.3s ease; */
+    /* z-index: 2; */
+}
+
+.content {
+    margin-left: 10%;
+    width: 40%;
+    text-align: left;
+
+}
+
+.content h3 {
+    color: #FFC107;
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-top: 2%;
+}
+
+.content h1 {
+    font-size: 48px;
+}
+
+.content h2 {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #555;
+}
+
+.content div {
+    margin-top: 20px;
+    margin-bottom: 2%;
+
+}
+
+.content div button {
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    border: none;
+    border-radius: 50%;
+    background-color: #ffc107;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.content div button:hover {
+    background-color: whitesmoke;
+    color: #FFC107;
+}
+
+/* Desktop Layout */
+#home {
+    flex-direction: row;
+}
+
+
+@media screen and (max-width: 768px) {
+    #home {
+        height: 70%;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(255,193,7,.13);
+    }
+
+    .design {
+        height: 100%;
+        width: 100%;
+        border-radius: 0;
+        padding: 0px;
+        margin: 0px;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        
+        
+    }
+
+    #photo {
+        order: 1;
+        height: 200px;
+        margin-top: 20px;
+        border-radius: 50%; /* Makes the image circular */
+        border: 3px solid #FFC107; /* Adds a golden thin border */
+        background-color: #fff;
+    }
+
+    .content {
+        width: 90%;
+        order: 2;
+        margin-top: 20px;
+        text-align: center;
+        margin: 0px;
+        
+    }
+
+    .content h1 {
+        font-size: 32px;
+    }
+
+    .content h2 {
+        font-size: 18px;
+    }
+
+    .content div button {
+        height: 35px;
+        width: 35px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #photo {
+        height: 150px;
+        border-width: 2px; /* Slightly thinner border for smaller screens */
+    }
+
+    .navbar{
+        width: 50%;
+    }
+
+    .navbar button{
+        text-align: left;
+        border-radius: 0px;
+    }
+
+    .content h1 {
+        font-size: 28px;
+    }
+
+    .content h2 {
+        font-size: 16px;
+    }
+
+
+    .content div button {
+        height: 30px;
+        width: 30px;
+        font-size: 16px;
+    }
+}
+
+
+
+
+#about_me {
+    padding: 5%;
+}
+
+#about_me h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#about_me p {
+    font-size: 1.2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #666;
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+.projects_counter {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.projects_counter div {
+    flex: 1 1 calc(33.33% - 2rem); /* Three boxes in a row for larger screens */
+    max-width: 200px;
+    height: 200px; /* Fixed height for consistency */
+    border: 2px dashed #FFC107;
+    border-radius: 20px;
+    padding: 1.5rem;
+    background-color: rgba(255,193,7,.13);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.projects_counter div h1 {
+    color: #FFC107;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.projects_counter div p {
+    color: black;
+    font-size: 1rem;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .projects_counter div {
+        flex: 1 1 calc(50% - 1rem); /* Two boxes in a row */
+        max-width: calc(50% - 1rem);
+        height: 180px; /* Adjusted for smaller screens */
+    }
+
+    #about_me h1 {
+        font-size: 2rem;
+    }
+
+    #about_me p {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .projects_counter div {
+        flex: 1 1 100%; /* Single column on very small screens */
+        max-width: 100%;
+        height: auto;
+    }
+
+    #about_me h1 {
+        font-size: 1.9rem;
+    }
+
+    #about_me p {
+        font-size: 1rem;
+
+    }
+
+    .projects_counter div h1 {
+        font-size: 1.5rem;
+    }
+
+    .projects_counter div p {
+        font-size: 0.9rem;
+    }
+}
+
+
+#skills_and_languages {
+    padding: 5% 3%;
+    background-color: rgba(255,193,7,.13);
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.skills, .languages {
+    flex: 1 1 calc(50% - 2rem); /* Two columns on larger screens */
+    max-width: 600px;
+    text-align: justify;
+    box-sizing: border-box;
+    padding: 0% 2%;
+}
+
+.skills h1, .languages h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.skills p, .languages p {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.skills span {
+    display: inline-block;
+    margin: 0.5rem 0.5rem 0 0;
+    padding: 6px 16px;
+    background-color: #FFC107;
+    border: none;
+    border-radius: 30px;
+    color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 0.9rem;
+}
+
+#l_div1, #l_div2 {
+    display: flex;
+    align-items: last baseline;
+    justify-content: flex-start;
+    gap: 1rem;
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#l_div1 span, #l_div2 span {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #FFC107;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: whitesmoke;
+    font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .skills, .languages {
+        flex: 1 1 100%; /* Single column on medium screens */
+        max-width: 100%;
+    }
+
+    .skills h1, .languages h1 {
+        font-size: 1.5rem;
+    }
+
+    .skills p, .languages p {
+        font-size: 0.9rem;
+    }
+
+    .skills span {
+        font-size: 0.8rem;
+        padding: 5px 12px;
+    }
+
+    #l_div1 span, #l_div2 span {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+
+
+
+    .skills h1, .languages h1 {
+        font-size: 1.3rem;
+    }
+
+    .skills p, .languages p {
+    
+        font-size: 1rem;
+    }
+
+    .skills span {
+        font-size: 1rem;
+        padding: 5px 15px;
+    }
+
+
+    #l_div1 span, #l_div2 span {
+        width: 50px;
+        height: 50px;
+        line-height: 40px;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+    }
+}
+
+
+
+#experiences {
+    width: 100%;
+    padding: 3% 0;
+    text-align: center;
+}
+
+#experiences h1 {
+    margin-bottom: 1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2rem;
+}
+
+#experiences p {
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.slider-container {
+    height: auto;
+    width: 90%;
+    margin: 2rem auto;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    gap: 20px;
+    padding-bottom: 1rem;
+}
+
+.slider {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    height: 300px;
+    min-width: 300px;
+    flex: 0 0 calc(33.33% - 20px); /* 3 cards visible */
+    background: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+    max-width: 300px;
+}
+
+.card h1 {
+    font-size: 1.2rem;
+    /* margin-bottom: 0.5rem; */
+    color: #FFC107;
+    text-decoration: none;
+
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Scrollbar styling */
+.slider-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.slider-container::-webkit-scrollbar-thumb {
+    background: #FFC107;
+    border-radius: 10px;
+}
+
+.slider-container::-webkit-scrollbar-track {
+    background: #f4f4f4;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .card {
+        flex: 0 0 calc(50% - 20px); /* 2 cards visible */
+        max-width: none;
+    }
+
+    #experiences h1 {
+        font-size: 1.8rem;
+    }
+
+    #experiences p {
+        padding: 4%;
+        font-size: 0.9rem;
+        text-align: justify;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .card {
+        flex: 0 0 100%; /* 1 card visible */
+        max-width: 70%;
+    }
+
+    #experiences h1 {
+        font-size: 1.5rem;
+    }
+
+    #experiences p {
+        font-size: 1rem;
+    }
+}
+
+
+
+
+.message {
+    width: 100%;
+    padding: 2.5% 0;
+    background-color: #ffc107;
+    color: #fff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Ensures responsiveness for smaller screens */
+    margin-bottom: 5%;
+    box-sizing: border-box;
+}
+
+.message h2 {
+    margin-left: 7%;
+    margin-bottom: 10px;
+    flex: 1; /* Allows flexible width */
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.message button {
+    height: 40px;
+    width: 200px;
+    border: none;
+    background-color: whitesmoke;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-right: 7%;
+    font-size: 16px;
+    flex-shrink: 0; /* Ensures button doesn't shrink */
+    box-shadow: -2px -2px 2px black;
+}
+
+.message button:active{
+    box-shadow: none;
+}
+
+#projects {
+    width: 90%;
+    margin: auto;
+    background-color: #f5edd6;
+    text-align: center;
+    padding: 5%;
+    
+}
+
+#projects h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 2%;
+    font-size: 2rem;
+}
+
+#projects p {
+    max-width: 600px;
+    margin: auto;
+    color: #666;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 3%;
+    line-height: 1.6;
+}
+
+.project-container {
+    display: flex;
+    flex-wrap: wrap; /* Wraps cards on smaller screens */
+    justify-content: center;
+    gap: 20px;
+    
+   
+}
+
+.project-card {
+    height: 400px;
+    width: 300px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: left;
+    overflow: hidden;
+
+}
+
+.project-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.project-card p {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: left;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .message h2 {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .message button {
+        margin-right: 0;
+        align-self: center;
+    }
+
+    .project-card {
+        width: calc(50% - 20px); /* 2 cards in a row */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .message {
+        flex-direction: column; /* Stacks content */
+        text-align: center;
+    }
+
+    .message h2 {
+        margin-bottom: 10px;
+    }
+
+    .project-card {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
+
+#contact {
+    height: auto;
+    width: 100%;
+    padding: 5% 0;
+    
+}
+
+#contact h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 2%;
+    font-size: 2rem;
+    text-align: center;
+}
+
+#contact p {
+    max-width: 600px;
+    margin: auto;
+    color: #666;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 3%;
+    line-height: 1.6;
+    text-align: center;
+}
+
+#c_outer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Makes the layout responsive */
+    gap: 20px;
+    padding: 0 15px;
+    justify-content: center; /* Centers on larger screens */
+}
+
+#c_inner1, #c_inner2 {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 4%;
+    border-radius: 10px;
+    background-color: #fff;
+    width: 100%;
+    max-width: 600px; /* Ensures cards fit well on smaller screens */
+    margin: auto; /* Centers content in the container */
+}
+
+
+#c_inner1 h2 {
+    margin-bottom: 1rem;
+}
+
+#c_inner1 label {
+    display: block;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: #666;
+}
+
+#c_inner1 input, #c_inner1 textarea {
+    width: 95%;
+    margin-top: 0.5rem;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+
+}
+
+#c_inner1 textarea {
+    resize: none;
+}
+
+#c_inner1 button {
+    width: 100%;
+    padding: 10px;
+    background-color: #FFC107;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+#c_inner1 button:hover{
+    background-color: black;
+}
+
+#c_inner2 h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#c_inner2 p {
+    margin-bottom: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+#c_inner2 #location, #c_inner2 #email, #c_inner2 #mobile_no {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+
+
+/* Footer */
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 15px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+footer .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+footer i {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+    color: white;
+}
+
+footer i:hover {
+    color: yellow;
+}
+
+footer h2 {
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .menu.active {
+        display: flex;
+        margin-top: 10px;
+    }
+
+    .icon {
+        display: block;
+    }
+
+    header {
+        align-items: flex-start;
+    }
+}
