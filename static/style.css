@@ -185,7 +185,7 @@ header {
 
     #photo {
         order: 1;
-        width: 180px;
+        width: 140px;
         height: 200px;
         margin-top: 20px;
         border-radius: 50%; /* Makes the image circular */
